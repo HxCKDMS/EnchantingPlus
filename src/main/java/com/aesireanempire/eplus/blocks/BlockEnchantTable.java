@@ -104,8 +104,8 @@ public class BlockEnchantTable extends BlockEnchantmentTable
     @Override
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("eplus:enchanting_table_side");
-        this.field_94461_a = par1IconRegister.registerIcon("eplus:enchanting_table_top");
-        this.field_94460_b = par1IconRegister.registerIcon("eplus:enchanting_table_bottom");
+        this.blockIcon = par1IconRegister.registerIcon("enchantingplus:enchanting_table_side");
+        this.field_94461_a = par1IconRegister.registerIcon("enchantingplus:enchanting_table_top");
+        this.field_94460_b = par1IconRegister.registerIcon("enchantingplus:enchanting_table_bottom");
     }
 }

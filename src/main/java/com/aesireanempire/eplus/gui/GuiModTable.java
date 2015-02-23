@@ -38,7 +38,7 @@ public class GuiModTable extends GuiContainer {
     private final int xPos;
     private final int yPos;
     private final int zPos;
-    private final ResourceLocation texture = new ResourceLocation(References.MODID, "textures/gui/enchant.png");
+    private final ResourceLocation texture = new ResourceLocation("enchantingplus", "textures/gui/enchant.png");
     public String error = "";
     private ArrayList<GuiItem> enchantmentArray = new ArrayList<GuiItem>();
     private double sliderIndex = 0;

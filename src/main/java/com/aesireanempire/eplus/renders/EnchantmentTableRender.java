@@ -1,6 +1,5 @@
 package com.aesireanempire.eplus.renders;
 
-import com.aesireanempire.eplus.lib.References;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBook;
@@ -16,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 public class EnchantmentTableRender extends TileEntitySpecialRenderer
 {
     private ModelBook enchantmentBook = new ModelBook();
-    private ResourceLocation texture = new ResourceLocation(References.MODID, "textures/gui/enchantingplus_book.png");
+    private ResourceLocation texture = new ResourceLocation("enchantingplus", "textures/gui/enchantingplus_book.png");
 
     public void renderTileEntityEnchantmentTableAt(TileEntityEnchantmentTable table, double xPos, double yPos, double zPos, float tickPartial)
     {
