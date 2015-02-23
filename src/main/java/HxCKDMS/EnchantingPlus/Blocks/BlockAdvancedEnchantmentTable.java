@@ -1,9 +1,9 @@
 package HxCKDMS.EnchantingPlus.Blocks;
 
-import HxCKDMS.EnchantingPlus.Api.HxCRegistry;
-import HxCKDMS.EnchantingPlus.Api.EnumHxCRegistryType;
 import HxCKDMS.EnchantingPlus.EnchantingPlus;
 import HxCKDMS.EnchantingPlus.TileEntities.TileEntityAdvancedEnchantmentTable;
+import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
+import HxCKDMS.HxCCore.Api.HxCRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockEnchantmentTable;
@@ -19,10 +19,6 @@ import java.util.Random;
 @HxCRegistry(unlocalizedName = "BlockAdvancedEnchantmentTable", registryType = EnumHxCRegistryType.BLOCK)
 @SuppressWarnings("unused")
 public class BlockAdvancedEnchantmentTable extends BlockEnchantmentTable {
-    
-    @HxCRegistry.Instance
-    public static BlockAdvancedEnchantmentTable instance;
-    
     @SideOnly(Side.CLIENT)
     public IIcon[] icons;
     

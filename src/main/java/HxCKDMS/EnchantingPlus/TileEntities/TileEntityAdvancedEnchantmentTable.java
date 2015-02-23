@@ -1,8 +1,8 @@
 package HxCKDMS.EnchantingPlus.TileEntities;
 
-import HxCKDMS.EnchantingPlus.Api.HxCRegistry;
-import HxCKDMS.EnchantingPlus.Api.EnumHxCRegistryType;
 import HxCKDMS.EnchantingPlus.Client.Render.TileEntity.TileEntityAdvancedEnchantmentTableRenderer;
+import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
+import HxCKDMS.HxCCore.Api.HxCRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;

@@ -1,10 +1,10 @@
 package HxCKDMS.EnchantingPlus.Items;
 
-import HxCKDMS.EnchantingPlus.Api.EnumHxCRegistryType;
-import HxCKDMS.EnchantingPlus.Api.HxCRegistry;
 import HxCKDMS.EnchantingPlus.Blocks.BlockAdvancedEnchantmentTable;
-import HxCKDMS.EnchantingPlus.Registry.ModRegistry;
 import HxCKDMS.EnchantingPlus.TileEntities.TileEntityAdvancedEnchantmentTable;
+import HxCKDMS.HxCCore.Api.EnumHxCRegistryType;
+import HxCKDMS.HxCCore.Api.HxCRegistry;
+import HxCKDMS.HxCCore.Registry.ModRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEnchantmentTable;
 import net.minecraft.client.renderer.texture.IIconRegister;
