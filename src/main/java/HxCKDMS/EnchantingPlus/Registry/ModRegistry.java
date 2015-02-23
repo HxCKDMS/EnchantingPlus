@@ -1,7 +1,7 @@
 package HxCKDMS.EnchantingPlus.Registry;
 
 import HxCKDMS.EnchantingPlus.Api.HxCRegistry;
-import HxCKDMS.EnchantingPlus.Api.HxCRegistryType;
+import HxCKDMS.EnchantingPlus.Api.EnumHxCRegistryType;
 import HxCKDMS.EnchantingPlus.EnchantingPlus;
 import HxCKDMS.EnchantingPlus.Lib.References;
 import HxCKDMS.HxCCore.Utils.LogHelper;
@@ -18,10 +18,13 @@ import net.minecraft.tileentity.TileEntity;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 
 public class ModRegistry {
     public static ArrayList<Class<HxCRegistry>> registryClasses = new ArrayList<Class<HxCRegistry>>();
+    public static HashMap<Class, Block> blockRegistry = new HashMap<Class, Block>();
+    public static HashMap<Class, Item> itemRegistry = new HashMap<Class, Item>();
     
     private static void registerObjects(Set<ASMDataTable.ASMData> asmData){
         if(asmData != null && !asmData.isEmpty()){
@@ -64,26 +67,28 @@ public class ModRegistry {
     private static boolean preInit(Class<HxCRegistry> registryClass){
         boolean successful = false;
         try{
-            HxCRegistryType type = registryClass.getAnnotation(HxCRegistry.class).registryType();
+            EnumHxCRegistryType type = registryClass.getAnnotation(HxCRegistry.class).registryType();
             
-            if(type == HxCRegistryType.BLOCK){
+            if(type == EnumHxCRegistryType.BLOCK){
+                Block block = (Block)registryClass.newInstance();
+                block.setBlockName(registryClass.getAnnotation(HxCRegistry.class).unlocalizedName());
+                blockRegistry.put(registryClass, block);
+                
                 if(registryClass.getAnnotation(HxCRegistry.class).itemBlock() != ItemBlock.class){
-                    Block block = (Block)registryClass.newInstance();
-                    block.setBlockName(registryClass.getAnnotation(HxCRegistry.class).unlocalizedName());
                     GameRegistry.registerBlock(block, registryClass.getAnnotation(HxCRegistry.class).itemBlock(), registryClass.getAnnotation(HxCRegistry.class).unlocalizedName());
                     successful = true;
                 }else{
-                    Block block = (Block)registryClass.newInstance();
-                    block.setBlockName(registryClass.getAnnotation(HxCRegistry.class).unlocalizedName());
                     GameRegistry.registerBlock(block, registryClass.getAnnotation(HxCRegistry.class).unlocalizedName());
                     successful = true;
                 }
-            }else if(type == HxCRegistryType.ITEM){
+            }else if(type == EnumHxCRegistryType.ITEM){
                 Item item = (Item)registryClass.newInstance();
                 item.setUnlocalizedName(registryClass.getAnnotation(HxCRegistry.class).unlocalizedName());
+                itemRegistry.put(registryClass, item);
+                
                 GameRegistry.registerItem(item, registryClass.getAnnotation(HxCRegistry.class).unlocalizedName());
                 successful = true;
-            }else if(type == HxCRegistryType.TILEENTITY) {
+            }else if(type == EnumHxCRegistryType.TILEENTITY) {
                 if(registryClass.getAnnotation(HxCRegistry.class).tileEntitySpecialRenderer() != TileEntitySpecialRenderer.class && EnchantingPlus.proxy.getSide() == Side.CLIENT){
                     TileEntity tileEntity = (TileEntity) registryClass.newInstance();
                     GameRegistry.registerTileEntity(tileEntity.getClass(), registryClass.getAnnotation(HxCRegistry.class).unlocalizedName());

@@ -14,9 +14,13 @@ import java.lang.annotation.Target;
 public @interface HxCRegistry {
     String unlocalizedName();
     
-    HxCRegistryType registryType();
+    EnumHxCRegistryType registryType();
     
     Class<? extends ItemBlock> itemBlock() default ItemBlock.class;
     
     Class<? extends TileEntitySpecialRenderer> tileEntitySpecialRenderer() default TileEntitySpecialRenderer.class;
+    
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.FIELD)
+    public @interface Instance {}
 }

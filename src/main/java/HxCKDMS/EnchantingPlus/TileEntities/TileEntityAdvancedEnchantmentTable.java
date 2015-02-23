@@ -1,8 +1,8 @@
 package HxCKDMS.EnchantingPlus.TileEntities;
 
 import HxCKDMS.EnchantingPlus.Api.HxCRegistry;
-import HxCKDMS.EnchantingPlus.Api.HxCRegistryType;
-import HxCKDMS.EnchantingPlus.Render.TileEntity.TileEntityAdvancedEnchantmentTableRenderer;
+import HxCKDMS.EnchantingPlus.Api.EnumHxCRegistryType;
+import HxCKDMS.EnchantingPlus.Client.Render.TileEntity.TileEntityAdvancedEnchantmentTableRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -11,7 +11,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityEnchantmentTable;
 
-@HxCRegistry(unlocalizedName = "TileEntityAdvancedEnchantmentTable", registryType = HxCRegistryType.TILEENTITY, tileEntitySpecialRenderer = TileEntityAdvancedEnchantmentTableRenderer.class)
+@HxCRegistry(unlocalizedName = "TileEntityAdvancedEnchantmentTable", registryType = EnumHxCRegistryType.TILEENTITY, tileEntitySpecialRenderer = TileEntityAdvancedEnchantmentTableRenderer.class)
 public class TileEntityAdvancedEnchantmentTable extends TileEntityEnchantmentTable {
     public ItemStack itemInTable;
     
